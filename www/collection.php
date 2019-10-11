@@ -1,10 +1,12 @@
 <?php
 
+include "autoload.php";
+
 $baseURL = 'https://images-api.nasa.gov/';
 
 $starQueryURL = $baseURL . 'search?q=star';
 
-$apiKey = process.env.API_KEY;
+$apiKey = env('API_KEY');
 
 $curl = curl_init($service_url);
 
