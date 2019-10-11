@@ -1,0 +1,53 @@
+@mixin clearfix {
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+
+  @mixin absoluteCentre {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  // Media query management
+
+  /*
+  0 - 600px mobile
+  600px - 900px tablet (portrait)
+  900px - 1200px tablet (landscape)
+  1800px+ large desktop
+   $breakpoint argument choices
+  - mobile
+  - portrait
+  - landscape
+  - large-screen
+  ORDER - Base & typography, general layout & grid, page layout, components
+  1em = 16px;
+  */
+
+  @mixin responsive($breakpoint) {
+    @if $breakpoint == mobile {
+        @media (max-width: 37.5em) { // 600px
+          @content
+        };
+    }
+    @if $breakpoint == portrait {
+        @media (max-width: 56.25em) { // 900px
+          @content
+        };
+    }
+    @if $breakpoint == landscape {
+        @media (max-width: 75em) { // 1200px
+          @content
+        };
+    }
+    @if $breakpoint == large-screen {
+        @media (min-width: 112.5em) {  // 1800px
+          @content
+        };
+    }
+  }

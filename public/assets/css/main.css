@@ -1,0 +1,246 @@
+/*
+0 - 600px mobile
+600px - 900px tablet (portrait)
+900px - 1200px tablet (landscape)
+1800px+ large desktop
+ $breakpoint argument choices
+- mobile
+- portrait
+- landscape
+- large-screen
+ORDER - Base & typography, general layout & grid, page layout, components
+1em = 16px;
+*/
+@keyframes moveInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  /* 40% {
+    transform: rotate(-180deg);
+  } */
+  80% {
+    transform: translate(1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+@keyframes moveInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-10rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+@keyframes moveInFromRight {
+  0% {
+    opacity: 0;
+    transform: rotate(-360deg); }
+  100% {
+    opacity: 1; } }
+@keyframes moveInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(10rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
+
+body {
+  box-sizing: border-box;
+  padding: 3rem; }
+  @media (max-width: 56.25em) {
+    body {
+      padding: 0; } }
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #888; }
+
+.main-heading {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  margin-bottom: 5rem; }
+  .main-heading--large {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 2rem;
+    animation-name: moveInFromTop;
+    animation-duration: 2s; }
+    @media (max-width: 37.5em) {
+      .main-heading--large {
+        letter-spacing: 1rem;
+        font-size: 5rem; } }
+  .main-heading--sub {
+    display: block;
+    font-size: 4rem;
+    font-weight: 4rem;
+    letter-spacing: 1.5rem;
+    animation-name: moveInFromLeft;
+    animation-duration: 3s;
+    animation-delay: 2s;
+    animation-fill-mode: backwards; }
+    @media (max-width: 37.5em) {
+      .main-heading--sub {
+        letter-spacing: .5rem; } }
+    .main-heading--sub:hover {
+      transform: skewY(2deg); }
+
+.secondary-heading--green {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: .2rem;
+  transition: all .2s;
+  background-image: -webkit-linear-gradient(left, #8b88b3, #322e68);
+  background-image: -o-linear-gradient(left, #8b88b3, #322e68);
+  background-image: linear-gradient(to left top, #8b88b3, #322e68); }
+  @media (max-width: 56.25em) {
+    .secondary-heading--green {
+      font-size: 3rem; } }
+  @media (max-width: 37.5em) {
+    .secondary-heading--green {
+      font-size: 2rem; } }
+  .secondary-heading--green:hover {
+    transform: skewY(-6deg) skewX(5deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
+.secondary-heading--orange {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: .2rem;
+  transition: all .2s;
+  background-image: -webkit-linear-gradient(left, #ee7300, #c96100);
+  background-image: -o-linear-gradient(left, #ee7300, #c96100);
+  background-image: linear-gradient(to left top, #ee7300, #c96100); }
+  @media (max-width: 56.25em) {
+    .secondary-heading--orange {
+      font-size: 3rem; } }
+  @media (max-width: 37.5em) {
+    .secondary-heading--orange {
+      font-size: 2.5rem; } }
+  .secondary-heading--orange:hover {
+    transform: skewY(-6deg) skewX(5deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
+
+.tertiary-heading {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase; }
+
+.para {
+  font-size: 14px; }
+  .para li {
+    font-size: 14px;
+    margin-left: 3rem; }
+  .para:not(:last-child) {
+    margin-bottom: 1.8rem; }
+
+.u-centre-text {
+  text-align: center !important; }
+
+.u-margin-bottom-large {
+  margin-bottom: 8rem !important; }
+  @media (max-width: 56.25em) {
+    .u-margin-bottom-large {
+      margin-bottom: 5rem !important; } }
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem !important; }
+  @media (max-width: 56.25em) {
+    .u-margin-bottom-medium {
+      margin-bottom: 3rem !important; } }
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem !important; }
+
+.u-margin-top-large {
+  margin-top: 8rem !important; }
+
+.u-margin-top-very-large {
+  margin-top: 10rem !important; }
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(139, 136, 179, 0.7), rgba(50, 46, 104, 0.7)), url("../images/hubble.jpeg");
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  @media (max-width: 37.5em) {
+    .header {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); } }
+  .header__logo-container {
+    position: absolute;
+    top: 3.5rem;
+    left: 3.5rem;
+    backface-visibility: hidden; }
+    @media (max-width: 56.25em) {
+      .header__logo-container {
+        top: 2.5rem;
+        left: 2.5rem; } }
+    @media (max-width: 37.5em) {
+      .header__logo-container {
+        top: 2rem;
+        left: 2rem; } }
+  .header__logo {
+    height: 6rem; }
+  .header__logo:hover {
+    animation-name: moveInFromRight;
+    animation-duration: 3s;
+    cursor: pointer; }
+  .header__text-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
+
+.btn {
+  display: inline-block;
+  background-color: #ee7300;
+  margin: 0 10px 5px 0;
+  border: 1px solid #ee7300;
+  border-radius: 4px;
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  line-height: 18px; }
+  .btn:hover {
+    background-color: #c96100;
+    border: 1px solid #c96100;
+    text-decoration: none; }
+
+/*# sourceMappingURL=main.css.map */

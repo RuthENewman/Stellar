@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  php:
+    build:
+      context: ./docker/php
+    volumes:
+      - /Users/ruthnewman/documents/stellar/www:/var/www/app/public/
+    working_dir: /var/www/public
+  apache:
+    build:
+      context: ./docker/apache
+    volumes:
+      - /Users/ruthnewman/documents/stellar/www:/var/www/app/public/
+    ports:
+      - 8980:80
+    links:
+      - php
+  sass:
+    build:
+      context: ./docker/sass
+    volumes:
+      - './public/assets:/sass'
+    command: sass --watch sass:css
+    working_dir: /sass

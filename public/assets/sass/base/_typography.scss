@@ -1,0 +1,126 @@
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: $grey-dark;
+  }
+
+  .main-heading {
+    color: $white;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    margin-bottom: 5rem;
+
+    &--large {
+      display: block;
+      font-size: 6rem;
+      font-weight: 400;
+      letter-spacing: 2rem;
+      animation-name: moveInFromTop;
+      animation-duration: 2s;
+
+      @include responsive(mobile) {
+        letter-spacing: 1rem;
+        font-size: 5rem;
+      }
+    }
+
+    &--sub {
+      display: block;
+      font-size: 4rem;
+      font-weight: 4rem;
+      letter-spacing: 1.5rem;
+      animation-name: moveInFromLeft;
+      animation-duration: 3s;
+      animation-delay: 2s;
+      animation-fill-mode: backwards;
+
+      @include responsive(mobile) {
+        letter-spacing: .5rem;
+      }
+
+      &:hover {
+        transform: skewY(2deg);
+      }
+    }
+  }
+
+  .secondary-heading {
+        &--green {
+       font-size: 3.5rem;
+       text-transform: uppercase;
+       font-weight: 700;
+       display: inline-block;
+       background-clip: text;
+       -webkit-background-clip: text;
+       color: transparent;
+       letter-spacing: .2rem;
+       transition: all .2s;
+       background-image: -webkit-linear-gradient(left, $purple-light, $purple-dark);
+       background-image: -o-linear-gradient(left, $purple-light, $purple-dark);
+       background-image: linear-gradient(to left top, $purple-light, $purple-dark);
+
+       @include responsive(portrait) {
+         font-size: 3rem;
+       }
+
+       @include responsive(mobile) {
+         font-size: 2rem;
+       }
+
+
+           &:hover {
+             transform: skewY(-6deg) skewX(5deg) scale(1.1);
+             text-shadow: .5rem 1rem 2rem rgba($black, .2);
+           }
+      }
+
+       &--orange {
+           font-size: 3.5rem;
+           text-transform: uppercase;
+           font-weight: 700;
+           display: inline-block;
+           background-clip: text;
+           -webkit-background-clip: text;
+           color: transparent;
+           letter-spacing: .2rem;
+           transition: all .2s;
+           background-image: -webkit-linear-gradient(left, $orange-base, $orange-dark);
+           background-image: -o-linear-gradient(left, $orange-base, $orange-dark);
+           background-image: linear-gradient(to left top, $orange-base, $orange-dark);
+
+           @include responsive(portrait) {
+             font-size: 3rem;
+           }
+
+           @include responsive(mobile) {
+             font-size: 2.5rem;
+           }
+
+             &:hover {
+               transform: skewY(-6deg) skewX(5deg) scale(1.1);
+               text-shadow: .5rem 1rem 2rem rgba($black, .2);
+             }
+         }
+
+  }
+
+  .tertiary-heading {
+    font-size: $font-size-default;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .para {
+    font-size: $font-size-default;
+
+    li {
+      font-size: $font-size-default;
+      margin-left: 3rem;
+
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 1.8rem;
+    }
+  }

@@ -1,0 +1,50 @@
+.header {
+    height: 95vh;
+    background-image: linear-gradient(
+      to right bottom,
+      rgba($purple-light, 0.7),
+      rgba($purple-dark, 0.7)),
+    url('../images/hubble.jpeg');
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    @include responsive(mobile) {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
+
+    &__logo-container {
+      position: absolute;
+      top: 3.5rem;
+      left: 3.5rem;
+      backface-visibility: hidden;
+
+      @include responsive(portrait) {
+        top: 2.5rem;
+        left: 2.5rem;
+      }
+
+      @include responsive(mobile) {
+        top: 2rem;
+        left: 2rem;
+      }
+    }
+
+    &__logo {
+      height: 6rem;
+    }
+
+      &__logo:hover {
+        animation-name: moveInFromRight;
+        animation-duration: 3s;
+        cursor: pointer;
+      }
+
+    &__text-container {
+      @include absoluteCentre;
+      text-align: center;
+    }
+  }
