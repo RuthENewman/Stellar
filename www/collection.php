@@ -4,7 +4,7 @@ $baseURL = 'https://images-api.nasa.gov/';
 
 $starQueryURL = $baseURL . 'search?q=star';
 
-$apiKey = 'gNNpKuoYlIteOC95WhIflG9hBJ44fCQqkwBi0Zcr';
+$apiKey = process.env.API_KEY;
 
 $curl = curl_init($service_url);
 
