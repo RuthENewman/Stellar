@@ -10,10 +10,19 @@
     <?php $title = "Stellar" ?>
 </head>
 <body>
-    <h1 class="main-heading"><?php echo strtoupper($title); ?></h1>
-    <h3 class="subtitle">A rotating image gallery of stars</h3>
-    <button class="btn" type="submit"><a href="stars.php">Click to start</a></button>
-
+    <div>
+        <h1>Star image to go here</h1>
+        <a href="index.php">Back to home</a>
+        <?php
+            $collection = var_export($forCollection, true);
+            var_dump($collection);
+            exit;
+            foreach ($collection as $image) {
+                echo "Hello this is a result";
+            }
+        ?>
+        <img src="<?php $this->escape($this->star->getImageURL());?>" alt=<?php $this->escape($this->star->getTitle());?>/>
+    </div>
 
 </body>
 </html>

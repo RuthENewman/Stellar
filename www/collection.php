@@ -6,12 +6,13 @@ $baseURL = 'https://images-api.nasa.gov/';
 
 $starQueryURL = $baseURL . 'search?q=star';
 
-$apiKey = env('API_KEY');
+$apiKey = getenv("API_KEY");
 
-$curl = curl_init($service_url);
+$curl = curl_init($starQueryURL);
 
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 $curl_response = curl_exec($curl);
+
 if ($curl_response === false) {
     $info = curl_getinfo($curl);
     curl_close($curl);
@@ -19,16 +20,20 @@ if ($curl_response === false) {
 }
 
 curl_close($curl);
-$decoded = json_decode($curl_response);
+
+$decoded = json_decode($curl_response, true);
+$forCollection = $decoded['collection']['items'];
+
 if (isset($decoded->response->status) && $decoded->response->status == 'ERROR') {
     exit('Error occured. Details ' . $decoded->response->errormessage);
 }
-echo 'Response OK!';
-var_export($decoded->response);
 
-// $response = get_contents($starQueryURL);
+$image_URL = $forCollection[0]['links'][0]['href'];
+echo $image_URL;
 
-$forCollection = $response['collection']['items']; // 100 hits
+var_export($forCollection);
+
+
 
 
 
