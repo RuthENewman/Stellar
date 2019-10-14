@@ -18,17 +18,23 @@
             include("./collection.php");
             $index = 0;
             foreach ($forCollection as $imageIndex => $image) {
-                if ($image['data'][0]['media_type'] === 'image') {
-
-                    echo "<div data-id=" . $imageIndex . ">
-                    <img class='star-image' src=" . $image['links'][0]['href'] .
-                    " alt=" . $image['data'][0]['title'] .
+                if ($image['data'][0]['media_type'] === 'image') { ?>
+                    <div data-id="<?php echo $imageIndex; ?>">
+                        <img class='star-image' src="<?php echo $image['links'][0]['href']; ?>
+                    " alt="<?php echo $image['data'][0]['title']; ?>
                     "/>";
-                    echo "<br/>";
-                    echo "<button type='submit' value='Delete'>Delete</button>";
-                    echo "<button type='submit' value='Add to favourites'>Add to favourites</button>";
-                    echo "<br/><br /></div>";
-                } else {
+                    <br/>
+                        <button type='submit' value='Delete'>
+                            <a href="/delete/<?php echo $imageIndex; ?>">Delete</a>
+                        </button>
+                        <button type='submit' value='Add to favourites'>
+                            <a href="/add/<?php echo $imageIndex; ?>">Add to favourites</a>
+                        </button>
+                        <br/>
+                        <br />
+                    </div>
+               <?php }
+               else {
                     // echo "<video
                     // controls
                     // class='star-video' src=" . $image['links'][0]['href'] .
