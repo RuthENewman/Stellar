@@ -15,9 +15,9 @@
         <a href="index.php">Back to home</a>
         <br/>
         <?php
-            include("./collection.php");
+            include("./sun-collection.php");
             $index = 0;
-            foreach ($forCollection as $imageIndex => $image) {
+            foreach ($forSunCollection as $imageIndex => $image) {
                 if ($image['data'][0]['media_type'] === 'image') { ?>
                     <div data-id="<?php echo $imageIndex; ?>">
                         <img
@@ -43,21 +43,3 @@
 
 </body>
 </html>
-<script>
-        // TOGGLE FULL SCREEN
-
-        // let images = document.querySelectorAll('.star-image');
-        // images.foreach((image) => {
-        //     image.addEventListener('click', => {
-        //         let id = parseInt(image.dataset.id);
-        //         toggleFullScreen(image.id);
-        //     });
-        // });
-
-        // CHANGE IMAGE TO NEXT
-
-
-        // DELETE IMAGE FROM GALLERY
-
-        // ADD TO FAVOURITES
-</script>

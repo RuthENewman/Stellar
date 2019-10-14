@@ -12,8 +12,12 @@
 <body>
     <h1 class="main-heading"><?php echo strtoupper($title); ?></h1>
     <h3 class="subtitle">A rotating image gallery of stars</h3>
-    <button class="btn" type="submit"><a href="stars.php">Click to start</a></button>
-
-
+    <button class="btn" type="submit"><a href="stars.php">All Stars</a></button>
+    <button class="btn" type="submit"><a href="sun.php">Our Sun</a></button>
+    <h4>Or search for your favourite star, constellation, planet or satellite: </h4>
+    <form>
+        <input type="text" placeholder="Your search query"/>
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>
