@@ -5,6 +5,7 @@
 $baseURL = 'https://images-api.nasa.gov/';
 
 $starQueryURL = $baseURL . 'search?q=star';
+$sunQueryURL = $baseURL . 'search?q=sun';
 
 $apiKey = getenv("API_KEY");
 
@@ -27,14 +28,6 @@ $forCollection = $decoded['collection']['items'];
 if (isset($decoded->response->status) && $decoded->response->status == 'ERROR') {
     exit('Error occured. Details ' . $decoded->response->errormessage);
 }
-
-// foreach($forCollection as $star) {
-//     echo $star['links'][0]['href'];
-//     echo "\n";
-// }
-
-// $image_URL = $forCollection[0]['links'][0]['href'];
-
 
 var_export($forCollection, true);
 

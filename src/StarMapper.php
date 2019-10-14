@@ -112,7 +112,16 @@ class StarMapper
         return $starId;
     }
 
-    public function buildStarFromRow($row) : Star
+    // should add userloginId as parameter when userlogin function added
+    public function delete($starId)
+    {
+        if($this->getDbTable()->delete('id = ?', $starId) != 1) {
+            return false;
+        }
+        return true;
+    }
+
+    private function buildStarFromRow($row) : Star
     {
         $star = new Star();
         $star->setId($row->id)

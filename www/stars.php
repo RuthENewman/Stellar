@@ -16,11 +16,11 @@
         <br/>
         <?php
             include("./collection.php");
-            // print_r($forCollection);
-            // $collection = var_export($forCollection, true);
             $index = 0;
             foreach ($forCollection as $imageIndex => $image) {
-                echo "<img src=" . $image['links'][0]['href'] . " />";
+                echo "<img src=" . $image['links'][0]['href'] .
+                " alt=" . $image['data'][0]['title'] .
+                " data-id=" . $imageIndex . " />";
                 echo "<br/>";
             }
         ?>
