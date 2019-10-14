@@ -1,6 +1,6 @@
 <?php
 
-include "autoload.php";
+// include("./autoload.php");
 
 $baseURL = 'https://images-api.nasa.gov/';
 
@@ -28,10 +28,15 @@ if (isset($decoded->response->status) && $decoded->response->status == 'ERROR') 
     exit('Error occured. Details ' . $decoded->response->errormessage);
 }
 
-$image_URL = $forCollection[0]['links'][0]['href'];
-echo $image_URL;
+// foreach($forCollection as $star) {
+//     echo $star['links'][0]['href'];
+//     echo "\n";
+// }
 
-var_export($forCollection);
+// $image_URL = $forCollection[0]['links'][0]['href'];
+
+
+var_export($forCollection, true);
 
 
 

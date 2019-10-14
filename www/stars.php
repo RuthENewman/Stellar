@@ -13,15 +13,18 @@
     <div>
         <h1>Star image to go here</h1>
         <a href="index.php">Back to home</a>
+        <br/>
         <?php
-            $collection = var_export($forCollection, true);
-            var_dump($collection);
-            exit;
-            foreach ($collection as $image) {
-                echo "Hello this is a result";
+            include("./collection.php");
+            // print_r($forCollection);
+            // $collection = var_export($forCollection, true);
+            $index = 0;
+            foreach ($forCollection as $imageIndex => $image) {
+                echo "<img src=" . $image['links'][0]['href'] . " />";
+                echo "<br/>";
             }
         ?>
-        <img src="<?php $this->escape($this->star->getImageURL());?>" alt=<?php $this->escape($this->star->getTitle());?>/>
+        <!-- <img src="<?php $this->escape($this->star->getImageURL());?>" alt=<?php $this->escape($this->star->getTitle());?>/> -->
     </div>
 
 </body>
