@@ -9,7 +9,7 @@
     <title>STELLAR</title>
 </head>
 <body>
-    <div class="home">
+    <section class="home-section">
         <div class="background-video">
             <video class="background-video__content" autoplay muted loop>
                 <source src="videos/solar-flare.mp4" type="video/mp4">
@@ -18,7 +18,7 @@
         </div>
         <div class="u-centre-text header-section u-margin-bottom-medium">
             <h1 class="main-heading--large">Stellar</h1>
-            <h3 class="secondary-heading--green">A rotating image gallery of stars</h3>
+            <h3 class="secondary-heading--purple">A rotating image gallery of stars</h3>
         </div>
         <div class="u-centre-text u-margin-bottom-small">
             <a class="btn btn__link" href="stars.php">All Stars</a>
@@ -27,12 +27,12 @@
         <div class="form-section u-centre-text">
         <h4 class="tertiary-heading u-margin-bottom-small">Or search for your favourite star, constellation, planet or satellite: </h4>
             <form class="form">
-                <div class="input u-margin-bottom-small">
+                <div class="form__details u-centre-text input u-margin-bottom-small">
                     <input class="form__input" type="text" placeholder="Your search query"/>
                 </div>
                 <button class="btn" type="submit">Submit</button>
             </form>
         </div>
-    </div>
+    </section>
 </body>
 </html>
