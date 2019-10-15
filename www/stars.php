@@ -11,9 +11,10 @@
 </head>
 <body>
     <div>
-        <h1><?php echo strtoupper($title);?></h1>
-        <a href="index.php">Back to home</a>
-        <br/>
+        <div class="u-centre-text header-section u-margin-bottom-medium">
+            <h1 class="main-heading--large"><?php echo strtoupper($title);?></h1>
+        </div>
+        <a class="btn u-margin-bottom-medium" href="index.php">Back to home</a>
         <?php
             include("./collection.php");
             $index = 0;
@@ -25,15 +26,8 @@
                             src="<?php echo $image['links'][0]['href']; ?>"
                             alt="<?php echo $image['data'][0]['title']; ?>"
                         />;
-                    <br/>
-                        <button type='submit' value='Delete'>
-                            <a href="/delete/<?php echo $imageIndex; ?>">Delete</a>
-                        </button>
-                        <button type='submit' value='Add to favourites'>
-                            <a href="/add/<?php echo $imageIndex; ?>">Add to favourites</a>
-                        </button>
-                        <br/>
-                        <br />
+                        <a class="btn u-margin-top-medium" href="/delete/<?php echo $imageIndex; ?>">Delete</a>
+                        <a class="u-margin-bottom-large btn" href="/add/<?php echo $imageIndex; ?>">Add to favourites</a>
                     </div>
                <?php }
             }
