@@ -248,6 +248,9 @@ body {
     text-decoration: none;
     color: #fff; }
 
+.menu-btns {
+  display: block; }
+
 .background-video {
   position: absolute;
   top: 0;

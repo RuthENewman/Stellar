@@ -20,14 +20,16 @@
             $index = 0;
             foreach ($forSunCollection as $imageIndex => $image) {
                 if ($image['data'][0]['media_type'] === 'image') { ?>
-                    <div data-id="<?php echo $imageIndex; ?>">
+                    <div class="u-centre-text" data-id="<?php echo $imageIndex; ?>">
                         <img
-                            class='star-image'
+                            class='star-image u-margin-bottom-medium'
                             src="<?php echo $image['links'][0]['href']; ?>"
                             alt="<?php echo $image['data'][0]['title']; ?>"
                         />;
-                        <a class="btn u-margin-top-medium" href="/delete/<?php echo $imageIndex; ?>">Delete</a>
-                        <a class="u-margin-bottom-large btn" href="/add/<?php echo $imageIndex; ?>">Add to favourites</a>
+                        <div class="menu-btns u-margin-top-medium u-centre-text">
+                            <a class="btn u-margin-top-medium" href="/delete/<?php echo $imageIndex; ?>">Delete</a>
+                            <a class="u-margin-bottom-medium btn" href="/add/<?php echo $imageIndex; ?>">Add to favourites</a>
+                        </div>
                     </div>
                <?php }
             }

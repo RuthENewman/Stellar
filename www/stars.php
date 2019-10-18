@@ -10,30 +10,32 @@
     <?php $title = "Stellar" ?>
 </head>
 <body>
-    <div class="all-stars-section">
-        <div class="u-centre-text header-section u-margin-bottom-medium">
-            <h1 class="main-heading--large"><?php echo strtoupper($title);?></h1>
+    <section class="all-stars-section">
+        <div class="u-centre-text header-section u-margin-bottom-small">
+            <h1 class="main-heading--large u-margin-bottom-medium"><?php echo strtoupper($title);?></h1>
+            <a class="btn u-margin-bottom-medium" href="index.php">Back to home</a>
         </div>
-        <a class="btn u-margin-bottom-medium" href="index.php">Back to home</a>
         <?php
             include("./collection.php");
             $index = 0;
             foreach ($forCollection as $imageIndex => $image) {
                 if ($image['data'][0]['media_type'] === 'image') { ?>
-                    <div data-id="<?php echo $imageIndex; ?>">
+                    <div class="u-centre-text" data-id="<?php echo $imageIndex; ?>">
                         <img
-                            class='star-image'
+                            class='star-image u-margin-bottom-medium'
                             src="<?php echo $image['links'][0]['href']; ?>"
                             alt="<?php echo $image['data'][0]['title']; ?>"
                         />;
-                        <a class="btn u-margin-top-medium" href="/delete/<?php echo $imageIndex; ?>">Delete</a>
-                        <a class="u-margin-bottom-large btn" href="/add/<?php echo $imageIndex; ?>">Add to favourites</a>
+                        <div class="menu-btns u-margin-top-medium">
+                            <a class="btn u-margin-top-medium" href="/delete/<?php echo $imageIndex; ?>">Delete</a>
+                            <a class="u-margin-bottom-medium btn" href="/add/<?php echo $imageIndex; ?>">Add to favourites</a>
+                        </div>
                     </div>
                <?php }
             }
         ?>
         <!-- <img src="<?php $this->escape($this->star->getImageURL());?>" alt=<?php $this->escape($this->star->getTitle());?>/> -->
-    </div>
+    </section>
 
 </body>
 </html>
