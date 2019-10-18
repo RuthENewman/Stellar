@@ -10,7 +10,7 @@
     <?php $title = "Stellar" ?>
 </head>
 <body>
-    <div>
+    <div class="all-stars-section">
         <div class="u-centre-text header-section u-margin-bottom-medium">
             <h1 class="main-heading--large"><?php echo strtoupper($title);?></h1>
         </div>

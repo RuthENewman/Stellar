@@ -1,4 +1,6 @@
 .form {
+    display: inline-block;
+
     &__details {
         margin-bottom: 2rem;
     }
@@ -7,12 +9,14 @@
       font-size: 2rem;
       font-family: inherit;
       color: inherit;
-      padding: 2rem;
+      padding: 2rem 8rem;
       background-color: rgba($white, .8);
       border: none;
       width: 90%;
       display: block;
       transition: all .3s;
+      text-align: center;
+      border-radius: 3%;
 
       &:focus {
             outline: none;

@@ -6,16 +6,15 @@ body {
   }
 
   .main-heading {
-    color: $white;
     text-transform: uppercase;
     backface-visibility: hidden;
     margin-bottom: 5rem;
 
     &--large {
       display: block;
+      color: $white;
       font-size: 6rem;
-      font-weight: 400;
-      letter-spacing: 2rem;
+      font-weight: 700;
       animation-name: moveInFromTop;
       animation-duration: 2s;
 
@@ -48,7 +47,6 @@ body {
   .secondary-heading {
         &--purple {
        font-size: 3.5rem;
-       text-transform: uppercase;
        font-weight: 700;
        display: inline-block;
        background-clip: text;
@@ -56,9 +54,9 @@ body {
        color: transparent;
        letter-spacing: .2rem;
        transition: all .2s;
-       background-image: -webkit-linear-gradient(left, $purple-light, $purple-dark);
-       background-image: -o-linear-gradient(left, $purple-light, $purple-dark);
-       background-image: linear-gradient(to left top, $purple-light, $purple-dark);
+       background-image: -webkit-linear-gradient(left, $blue-light, $purple-dark);
+       background-image: -o-linear-gradient(left, $blue-light, $purple-dark);
+       background-image: linear-gradient(to left top, $blue-light, $purple-dark);
 
        @include responsive(portrait) {
          font-size: 3rem;
@@ -106,8 +104,10 @@ body {
   }
 
   .tertiary-heading {
-    font-size: $font-size-default;
-    font-weight: 700;
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: .1.5rem;
+    color: $white;
   }
 
   .para {

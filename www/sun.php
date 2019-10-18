@@ -10,7 +10,7 @@
     <?php $title = "Stellar" ?>
 </head>
 <body>
-    <div>
+    <div class="sun-section">
         <div class="u-centre-text u-margin-bottom-medium">
             <h1 class="main-heading--large"><?php echo strtoupper($title);?></h1>
             <a class="btn" href="index.php">Back to home</a>
@@ -26,15 +26,8 @@
                             src="<?php echo $image['links'][0]['href']; ?>"
                             alt="<?php echo $image['data'][0]['title']; ?>"
                         />;
-                    <br/>
-                        <button class="btn" type='submit' value='Delete'>
-                            <a href="/delete/<?php echo $imageIndex; ?>">Delete</a>
-                        </button>
-                        <button class="btn" type='submit' value='Add to favourites'>
-                            <a href="/add/<?php echo $imageIndex; ?>">Add to favourites</a>
-                        </button>
-                        <br/>
-                        <br />
+                        <a class="btn u-margin-top-medium" href="/delete/<?php echo $imageIndex; ?>">Delete</a>
+                        <a class="u-margin-bottom-large btn" href="/add/<?php echo $imageIndex; ?>">Add to favourites</a>
                     </div>
                <?php }
             }

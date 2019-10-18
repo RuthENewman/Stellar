@@ -20,6 +20,6 @@ services:
     build:
       context: ./docker/sass
     volumes:
-      - './public/assets:/sass'
+      - './www/public/assets:/sass'
     command: sass --watch sass:css
     working_dir: /sass

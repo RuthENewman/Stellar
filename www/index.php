@@ -16,7 +16,7 @@
                     Your Browser does not support this video.
             </video>
         </div>
-        <div class="u-centre-text header-section u-margin-bottom-medium">
+        <div class="u-centre-text header-section u-margin-top-large u-margin-bottom-medium">
             <h1 class="main-heading--large">Stellar</h1>
             <h3 class="secondary-heading--purple">A rotating image gallery of stars</h3>
         </div>
@@ -25,12 +25,12 @@
             <a class="btn btn__link" href="sun.php">Our Sun</a>
         </div>
         <div class="form-section u-centre-text">
-        <h4 class="tertiary-heading u-margin-bottom-small">Or search for your favourite star, constellation, planet or satellite: </h4>
+        <h4 class="tertiary-heading u-margin-bottom-medium">Or search for a star, constellation, planet or satellite: </h4>
             <form class="form">
-                <div class="form__details u-centre-text input u-margin-bottom-small">
+                <div class="form__details u-centre-text input u-margin-bottom-medium">
                     <input class="form__input" type="text" placeholder="Your search query"/>
                 </div>
-                <button class="btn" type="submit">Submit</button>
+                <button class="btn u-margin-bottom-small" type="submit">Submit</button>
             </form>
         </div>
     </section>
