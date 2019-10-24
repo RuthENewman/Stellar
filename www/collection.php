@@ -25,10 +25,6 @@ $forCollection = $decoded['collection']['items'];
 if (isset($decoded->response->status) && $decoded->response->status == 'ERROR') {
     exit('Error occured. Details ' . $decoded->response->errormessage);
 }
-
-var_dump($forCollection[2]);
-exit;
-
 var_export($forCollection, true);
 
 
