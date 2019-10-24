@@ -225,7 +225,7 @@ class Star
 
     /**
      * @return string
-     */
+     * /
     public function getDateCreated()
     {
         return $this->date_created;

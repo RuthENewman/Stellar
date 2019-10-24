@@ -37,20 +37,6 @@ class StarMapper
     //     return $this->dbTable;
     // }
 
-    public function createTeammate($data)
-    {
-        $teammate = new \Application_Model_Userlogin();
-        $teammate->setUsername(trim(strtolower($data['username'])))
-                 ->setName($data['contactName'])
-                 ->setNewPassword(trim($data['password']))
-                 ->setTimezone($data['timezone'])
-                 ->setCurrency(RequestMeta::getCurrency())
-                 ->setHowDidYouHear('Invited by teammate');
-        $teammate->justSeen();
-        $teammate->setId($this->userloginMapper->save($teammate));
-        return $teammate;
-    }
-
     public function createAllStars($data, $index)
     {
         $star = new Star();
