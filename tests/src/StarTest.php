@@ -45,4 +45,39 @@ class StarTest extends \PHPUnit\Framework\TestCase
     {
 
     }
+
+    public function testFindStar()
+    {
+
+    }
+
+    public function testFindByTitle()
+    {
+
+    }
+
+    public function testFindByURL()
+    {
+
+    }
+
+    public function testCreateAllStars()
+    {
+
+    }
+
+    public function testCreateStar()
+    {
+
+    }
+
+    public function testSave()
+    {
+
+    }
+
+    public function testDelete()
+    {
+
+    }
 }
