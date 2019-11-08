@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-class Userlogin
+class Userlogin extends Model
 {
     /**
      * @var int
@@ -148,6 +148,17 @@ class Userlogin
     {
         $this->reset_password_token = (string)$token;
         return $this;
+    }
+
+    public static function verifyUser($email, $password)
+    {
+        global $database;
+
+        $email = $database->escapeString($email);
+        $passowrd = $databse->escapeString($password);
+        $sql = "SELECT * FROM userlogins WHERE email = $email AND password = $password LIMIT 1";
+        $resultArray = self::findQuery($sql);
+        return !empty($resultArray) ? array_shift($resultArray) : false;
     }
 
 }

@@ -1,7 +1,22 @@
 {
     "autoload": {
         "classmap": [
-            "src/"
+            "www/config.php",
+            "www/database.php",
+            "www/session.php",
+            "www/model.php",
+            "www/userlogin.php",
+            "www/star.php",
+            "www/favourite.php",
+            "www/collection.php",
+            "www/sun-collection.php",
+            "www/add-favourite.php",
+            "www/create-star.php",
+            "www/stars.php",
+            "www/custom-collection.php",
+            "www/single-star.php",
+            "www/sun.php",
+            "www/show-favourites.php"
         ]
     },
     "require-dev": {

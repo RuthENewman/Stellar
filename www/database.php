@@ -6,14 +6,9 @@ class Database
 {
     public $connection;
 
-    public function __construct()
-    {
-        $this->openDBConnection();
-    }
-
     public function openDBConnection()
     {
-        $this->connection = mysqli(
+        $this->connection = new mysqli(
             DB_HOST,
             DB_USER,
             DB_PASS,
@@ -44,3 +39,4 @@ class Database
 }
 
 $database = new Database();
+$database->openDBConnection();

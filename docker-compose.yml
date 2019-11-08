@@ -7,7 +7,7 @@ services:
     volumes:
       - /Users/ruthnewman/documents/stellar/www:/var/www/app/public/
     ports:
-      - 8980:80
+      - 3306:80
     links:
       - php
   php:

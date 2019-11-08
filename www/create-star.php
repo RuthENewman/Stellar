@@ -1,14 +1,14 @@
 <?php
 
 include("collection.php");
-use Src\StarMapper;
+use Src\Star;
 
 $stars = $forCollection;
 
 $index = 0;
 
 foreach($stars as $star) {
-    StarMapper::createStar($star, $index);
+    Star::createStar($star, $index);
     $index++;
 }
 

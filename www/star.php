@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-class Star
+class Star extends Model
 {
     /**
     * ID for the image
@@ -245,7 +245,7 @@ class Star
     {
         global $database;
         $sql = "SELECT * FROM stars";
-
+        return static::findQuery($sql);
     }
 
     public function findStar($id)
@@ -292,7 +292,7 @@ class Star
                  ->setKeywords($data[$index]['data'][0]['keywords'])
                  ->setNasaId($data[$index]['data'][0]['nasa_id'])
                  ->setDateCreated($data[$index]['data'][0]['date_created']);
-        $star->setId($this->starMapper->save($star));
+        $star->setId($this->star->save($star));
         return $star;
     }
 
@@ -307,7 +307,7 @@ class Star
                  ->setKeywords($data['data'][0]['keywords'])
                  ->setNasaId($data['data'][0]['nasa_id'])
                  ->setDateCreated($data['data'][0]['date_created']);
-        $star->setId($this->starMapper->save($star));
+        $star->setId($this->star->save($star));
         return $star;
     }
 

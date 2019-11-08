@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-class Favourite
+class Favourite extends Model
 {
     /**
      * @var int
