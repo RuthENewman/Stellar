@@ -2,8 +2,16 @@
 
 declare(strict_types=1);
 
+namespace Stellar;
+
 class Star extends Model
 {
+    /**
+     * Database table name
+     * @var string
+     */
+    protected static $dbTable = "stars";
+
     /**
     * ID for the image
     *
@@ -225,14 +233,14 @@ class Star extends Model
 
     /**
      * @return string
-     * /
+     *
+     */
      public function getDateCreated()
     {
          return $this->date_created;
      }
 
-    /**
-     * @param string $dateCreated
+    /* @param string $dateCreated
      * @return Star
      */
     public function setDateCreated($dateCreated)
@@ -250,6 +258,7 @@ class Star extends Model
 
     public function findStar($id)
     {
+        global $database;
 
     }
 
@@ -266,7 +275,7 @@ class Star extends Model
     // public function setDbTable($dbTable)
     // {
     //     if (is_string($dbTable)) {
-    //         $dbTable = new $dbTable();
+    //         $dbTable = new Star();
     //     }
     //     $this->dbTable = $dbTable;
     //     return $this;
@@ -274,9 +283,9 @@ class Star extends Model
 
     // public function getDbTable()
     // {
-    //     if (null === $this->dbTable)
+    //     if (null === $dbTable)
     //     {
-    //         $this->setDbTable('Star');
+    //         $this->setDbTable('stars');
     //     }
     //     return $this->dbTable;
     // }
@@ -307,7 +316,7 @@ class Star extends Model
                  ->setKeywords($data['data'][0]['keywords'])
                  ->setNasaId($data['data'][0]['nasa_id'])
                  ->setDateCreated($data['data'][0]['date_created']);
-        $star->setId($this->star->save($star));
+        $star->setId($star->save($star));
         return $star;
     }
 
@@ -320,6 +329,7 @@ class Star extends Model
 
     public function save(Star $star)
     {
+        global $database;
         $data = [
             'search_id' => $star->getSearchId(),
             'image_url' => $star->getImageURL(),
@@ -328,13 +338,19 @@ class Star extends Model
             'media_type' => $star->getMediaType(),
             'keywords' => $star->getKeywords(),
             'nasa_id' => $star->getNasaId(),
-            'date_created' => $star->getCreated()
+            'date_created' => $star->getDateCreated()
         ];
-
         if (null === ($id = $star->getId())) {
             unset($data['id']);
-            $starId = $this->getDbTable()->insert($data);
-            $star->setId($starId);
+
+            $sql = "INSERT INTO " . $dbTable .  "(" . implode(",", array_keys($data)) . ")";
+            $sql .= " VALUES ('" . implode("',", array_values($data)) . "')";
+            if ($database->query($sql)) {
+                $this->id = $database->insertID();
+                return true;
+            } else {
+                return false;
+            }
         } else {
             $this->getDbTable()->update($data, ['id = ?' => $id]);
             $starId = $id;

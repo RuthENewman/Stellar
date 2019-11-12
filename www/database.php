@@ -1,42 +1,32 @@
 <?php
 
-require_once("config.php");
-
 class Database
 {
-    public $connection;
+    public $host = "mysql";
+    public $user = "root";
+    public $port = "19090";
+    public $password = "root";
+    public $databaseName = "stellar";
 
-    public function openDBConnection()
+    public function connect()
     {
-        $this->connection = new mysqli(
-            DB_HOST,
-            DB_USER,
-            DB_PASS,
-            DB_NAME
-        );
-
-        if ($this->connection->connect_errno) {
-            die("Database connection failed" . $this->connection->connect_error);
+        try {
+            $conn = 'mysql:host=' . $this->host .  ';dbname=' . $this->databaseName;
+            $pdo = new PDO($conn, "$this->user", $this->password);
+            $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+            return $pdo;
+        } catch (PDOException $e) {
+        echo "Connection failed: " . $e->getMessage();
         }
     }
 
     public function query($sql)
     {
-        $result = $this->connection->query($sql);
-        $this->confirmQuery($result);
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
         return $result;
     }
 
-    private function confirmQuery($result)
-    {
-        return $this->connection->real_escape_string($string);
-    }
 
-    public function insertID()
-    {
-        return $this->connection->insert_id;
-    }
+
 }
-
-$database = new Database();
-$database->openDBConnection();

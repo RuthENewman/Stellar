@@ -1,7 +1,5 @@
 <?php
 
-// include("./autoload.php");
-
 $baseURL = 'https://images-api.nasa.gov/';
 
 $customQuery = '';

@@ -1,4 +1,7 @@
 <?php
+
+namespace Stellar;
+
 class Model
 {
     public static function findQuery($sql)

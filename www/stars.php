@@ -27,8 +27,8 @@
                             alt="<?php echo $image['data'][0]['title']; ?>"
                         />;
                         <div class="menu-btns u-margin-top-medium">
-                            <a class="btn u-margin-top-medium" href="/delete/<?php echo $imageIndex; ?>">Delete</a>
-                            <a class="u-margin-bottom-medium btn" href="/add/<?php echo $imageIndex; ?>">Add to favourites</a>
+                            <a class="btn u-margin-top-medium" href="/delete-star.php?id=<?php echo $imageIndex; ?>">Delete</a>
+                            <a class="u-margin-bottom-medium btn" href="/add-favourite.php?id=<?php echo $imageIndex; ?>">Add to favourites</a>
                         </div>
                     </div>
                <?php }

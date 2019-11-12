@@ -5,6 +5,7 @@
             "www/database.php",
             "www/session.php",
             "www/model.php",
+            "www/index.php",
             "www/userlogin.php",
             "www/star.php",
             "www/favourite.php",

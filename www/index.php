@@ -1,5 +1,9 @@
 <?php
-require "vendor/autoload.php"; ?>
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,14 +30,29 @@ require "vendor/autoload.php"; ?>
             <a class="btn btn__link" href="stars.php">All Stars</a>
             <a class="btn btn__link" href="sun.php">Our Sun</a>
         </div>
-        <div class="form-section u-centre-text">
-        <h4 class="tertiary-heading u-margin-bottom-medium">Or search for a star, constellation, planet or satellite: </h4>
-            <form class="form">
+        <div>
+            <?php
+            include("./init.php");
+
+                $titles = [];
+                $stmt = $database->connect()->query("SELECT * FROM stars");
+                while($row = $stmt->fetch()) {
+                    $titles[] = $row['title'];
+
+                }
+
+            foreach($titles as $title) { ?>
+                <h4><?php echo $title; ?></h4>
+            <?php } ?>
+        </div>
+        <!-- <div class="form-section u-centre-text"> -->
+        <!-- <h4 class="tertiary-heading u-margin-bottom-medium">Or search for a star, constellation, planet or satellite: </h4> -->
+            <!-- <form class="form">
                 <div class="form__details u-centre-text input u-margin-bottom-medium">
                     <input class="form__input" type="text" placeholder="Your search query"/>
                 </div>
                 <button class="btn u-margin-bottom-small" type="submit">Submit</button>
-            </form>
+            </form> -->
         </div>
     </section>
 </body>

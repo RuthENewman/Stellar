@@ -1,5 +1,7 @@
 <?php
 
+namespace Stellar;
+
 class Session
 {
     private $signedIn;
