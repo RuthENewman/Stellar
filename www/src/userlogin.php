@@ -163,4 +163,28 @@ class Userlogin
         return !empty($resultArray) ? array_shift($resultArray) : false;
     }
 
+    public static function findAll()
+    {
+        global $database;
+        $sql = "SELECT * FROM userlogins";
+        $result = $database->connect()->query($sql);
+        $userlogins = [];
+        while($row = $result->fetch()) {
+            $userlogins[] = $row;
+        }
+        return $userlogins;
+    }
+
+    public static function findUserlogin($id)
+    {
+        global $database;
+        $sql = "SELECT * FROM userlogins WHERE id=" . $id . " LIMIT 1";
+        $result = $database->connect()->query($sql);
+        $userlogins = [];
+        while($row = $result->fetch()) {
+            $userlogin = $row;
+            return $row;
+        }
+    }
+
 }
