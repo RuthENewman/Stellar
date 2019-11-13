@@ -325,18 +325,20 @@ class Star
                  ->setKeywords($data['data'][0]['keywords'])
                  ->setNasaId($data['data'][0]['nasa_id'])
                  ->setDateCreated($data['data'][0]['date_created']);
-        $star->setId($star->save($star));
+        // $star->setId($star->save($star));
+        // $star->save($star )
         return $star;
     }
 
-    public function saveAll($collection)
+    public static function saveAll($stars)
     {
-        foreach ($collection as $star) {
-            $this->save($star);
+        global $database;
+        foreach($stars as $star) {
+            Star::saveSingle($star);
         }
     }
 
-    public function save(Star $star)
+    public static function saveSingle($star)
     {
         global $database;
         $data = [
@@ -349,17 +351,13 @@ class Star
             'nasa_id' => $star->getNasaId(),
             'date_created' => $star->getDateCreated()
         ];
-            $sql = "INSERT INTO " . $dbTable .  "(" . implode(",", array_keys($data)) . ")";
-            $sql .= " VALUES ('" . implode("',", array_values($data)) . "')";
-            if ($database->query($sql)) {
-                $this->id = $database->insertID();
-                return true;
-            } else {
-                return false;
-            }
-            $this->update($data, ['id = ?' => $id]);
-            $starId = $id;
-        return $starId;
+        $sql = "INSERT INTO stars SET search_id=:search_id, image_url=:image_url,";
+        $sql .= " title=:title, description=:description, media_type=:media_type,";
+        $sql .= " keywords=:keywords, nasa_id=:nasa_id, date_created=:date_created";
+        $status = $database->insertInto($sql)->execute($data);
+        if ($status) {
+            $id = (int)$database->lastInsertId();
+        }
     }
 
     public function delete($id)

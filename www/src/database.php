@@ -27,6 +27,13 @@ class Database
         return $result;
     }
 
+    public function insertInto($sql)
+    {
+        $pdo = $this->connect();
+        $statement = $pdo->prepare($sql);
+        return $statement;
+    }
+
 
 
 }
