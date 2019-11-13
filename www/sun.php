@@ -16,7 +16,7 @@
             <a class="btn" href="index.php">Back to home</a>
         </div>
         <?php
-            include("./sun-collection.php");
+            include("classes.php");
             $index = 0;
             foreach ($forSunCollection as $imageIndex => $image) {
                 if ($image['data'][0]['media_type'] === 'image') { ?>

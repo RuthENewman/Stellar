@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Stellar;
 
-class Favourite extends Model
+class Favourite
 {
     /**
      * @var int

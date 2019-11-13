@@ -16,14 +16,14 @@ class Database
             $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
             return $pdo;
         } catch (PDOException $e) {
-        echo "Connection failed: " . $e->getMessage();
+            echo "Connection failed: " . $e->getMessage();
         }
     }
 
     public function query($sql)
     {
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute();
+        $pdo = $this->connect();
+        $result = $pdo->query($sql)->fetch(PDO::FETCH_BOTH);
         return $result;
     }
 

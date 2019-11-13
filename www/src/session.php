@@ -48,7 +48,28 @@ class Session
             $this->signedIn = false;
         }
     }
+
+    public function logout()
+    {
+        unset($_SESSION['user_id']);
+        unset($this->userId);
+        $this->signedIn = false;
+    }
+
+    public function checkLogin()
+    {
+        if(isset($_SESSION['user_id'])) {
+            $this->userId = $_SESSION['user_id'];
+            $this->signedIn = true;
+        } else {
+            unset($this->userId);
+            $this->signedIn = false;
+        }
+    }
+
+
 }
 
-
 $session = new Session();
+
+

@@ -1,7 +1,6 @@
 <?php
     include("init.php");
     include("src/session.php");
-    include("src/userlogin.php");
     $message = "";
     if ($session->isSignedIn()) {
         header("Location: index.php");

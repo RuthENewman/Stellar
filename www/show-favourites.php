@@ -1,10 +1,10 @@
 <?php
-require_once("database.php");
-require_once("model.php");
-require_once("star.php");
-require_once("favourite.php");
+require_once('classes.php');
+require_once('init.php');
 
-$stars = Star::findAll();
-
-var_dump($stars);
+// $star = new Star();
+$foundFaveStars = Favourite::findAll();
+var_dump($foundFaveStars);
 exit;
+
+?>

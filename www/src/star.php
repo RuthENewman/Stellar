@@ -1,10 +1,11 @@
 <?php
 
 declare(strict_types=1);
-
 namespace Stellar;
 
-class Star extends Model
+require_once('classes.php');
+
+class Star
 {
     /**
      * Database table name
@@ -253,56 +254,64 @@ class Star extends Model
     {
         global $database;
         $sql = "SELECT * FROM stars";
-        return static::findQuery($sql);
+        $result = $database->connect()->query($sql);
+        $stars = [];
+        while($row = $result->fetch()) {
+           $stars[] = $row;
+        }
+        return $stars;
     }
 
-    public function findStar($id)
+    public static function findFirst()
     {
         global $database;
-
+        $sql = "SELECT * FROM stars LIMIT 1";
+        $result = $database->connect()->query($sql);
+        while($row = $result->fetch()) {
+            $star = $row;
+            return $row;
+        }
     }
 
-    public function findByTitle($title)
+    public static function findStar($id)
     {
-
+        global $database;
+        $sql = "SELECT * FROM stars WHERE id=" . $id;
+        $result = $database->connect()->query($sql);
+        while($row = $result->fetch()) {
+            $star = $row;
+            return $row;
+        }
     }
 
-    public function findByURL($url)
+    public static function findByTitle($title)
     {
-
+        global $database;
+        $sql = "SELECT * FROM stars WHERE title='" . $title . "'";
+        $result = $database->connect()->query($sql);
+        while($row = $result->fetch()) {
+            $star = $row;
+            return $row;
+        }
     }
 
-    // public function setDbTable($dbTable)
-    // {
-    //     if (is_string($dbTable)) {
-    //         $dbTable = new Star();
-    //     }
-    //     $this->dbTable = $dbTable;
-    //     return $this;
-    // }
-
-    // public function getDbTable()
-    // {
-    //     if (null === $dbTable)
-    //     {
-    //         $this->setDbTable('stars');
-    //     }
-    //     return $this->dbTable;
-    // }
-
-    public function createAllStars($data, $index)
+    public static function findByURL($url)
     {
-        $star = new Star();
-        $star->setSearchId($data[$index])
-                 ->setImageURL($data[$index]['links'][0]['href'])
-                 ->setTitle($data[$index]['data'][0]['title'])
-                 ->setDescription($data[$index]['data'][0]['description'])
-                 ->setMediaType($data[$index]['data'][0]['media_type'])
-                 ->setKeywords($data[$index]['data'][0]['keywords'])
-                 ->setNasaId($data[$index]['data'][0]['nasa_id'])
-                 ->setDateCreated($data[$index]['data'][0]['date_created']);
-        $star->setId($this->star->save($star));
-        return $star;
+        global $database;
+        $sql = "SELECT * FROM stars WHERE image_url='" . $url . "'";
+        $result = $database->connect()->query($sql);
+        while($row = $result->fetch()) {
+            $star = $row;
+            return $row;
+        }
+    }
+
+    public function createAllStars($data)
+    {
+        foreach($data as $row) {
+            $this->buildStarFromRow($row);
+        }
+        return $stars;
     }
 
     public function createStar($data, $index)
@@ -340,9 +349,6 @@ class Star extends Model
             'nasa_id' => $star->getNasaId(),
             'date_created' => $star->getDateCreated()
         ];
-        if (null === ($id = $star->getId())) {
-            unset($data['id']);
-
             $sql = "INSERT INTO " . $dbTable .  "(" . implode(",", array_keys($data)) . ")";
             $sql .= " VALUES ('" . implode("',", array_values($data)) . "')";
             if ($database->query($sql)) {
@@ -351,19 +357,16 @@ class Star extends Model
             } else {
                 return false;
             }
-        } else {
-            $this->getDbTable()->update($data, ['id = ?' => $id]);
+            $this->update($data, ['id = ?' => $id]);
             $starId = $id;
-        }
         return $starId;
     }
 
-    // should add userloginId as parameter when userlogin function added
-    public function delete($starId)
+    public function delete($id)
     {
-        if($this->getDbTable()->delete('id = ?', $starId) != 1) {
-            return false;
-        }
+        global $database;
+        $sql = "DELETE FROM stars WHERE id=" . $id . " LIMIT 1";
+        $database->connect()->prepare($sql)->execute();
         return true;
     }
 
@@ -379,8 +382,7 @@ class Star extends Model
               ->setKeywords($row->keywords)
               ->setNasaId($row->nasa_id)
               ->setDateCreated($row->date_created);
-
-              return $star;
+        return $star;
     }
 
 }

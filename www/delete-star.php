@@ -3,9 +3,7 @@
 namespace Stellar;
 
 include("init.php");
-include("collection.php");
-include("src/model.php");
-include("src/star.php");
+include("classes.php");
 
 if(!empty($_GET['id'])) {
     header("Location: stars.php");

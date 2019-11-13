@@ -16,7 +16,7 @@
             <a class="btn u-margin-bottom-medium" href="index.php">Back to home</a>
         </div>
         <?php
-            include("./collection.php");
+            include("classes.php");
             $index = 0;
             foreach ($forCollection as $imageIndex => $image) {
                 if ($image['data'][0]['media_type'] === 'image') { ?>

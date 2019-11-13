@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Stellar;
 
-class Userlogin extends Model
+class Userlogin
 {
     /**
      * @var int

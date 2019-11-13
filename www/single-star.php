@@ -16,8 +16,8 @@
             <a class="btn u-margin-bottom-medium" href="index.php">Back to home</a>
         </div>
         <?php
-            $stars = Star::findAll()
-            $star
+            // $star = new Star();
+            // $stars = $star->findAll();
         ?>
         <!-- <img src="<?php $this->escape($this->star->getImageURL());?>" alt=<?php $this->escape($this->star->getTitle());?>/> -->
     </section>

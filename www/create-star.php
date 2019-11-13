@@ -2,18 +2,25 @@
 
 namespace Stellar;
 
+include("classes.php");
 include("init.php");
-include("collection.php");
-include("src/model.php");
-include("src/star.php");
 
 $stars = $forCollection;
 
 $index = 0;
 
-foreach($stars as $star) {
-    $newStar = new Star();
-    $newStar->createStar($star, $index);
-    $index++;
-}
+$allStars = Star::findAll();
+$firstStar = Star::findFirst();
+$foundStar = Star::findStar(1848);
+$foundByTitle = Star::findByTitle("Tabbys Star (Illustration)");
+$foundByURL = Star::findByURL("https://images-assets.nasa.gov/image/PIA22081/PIA22081~orig.jpg");
+
+var_dump($foundByURL);
+exit;
+
+// foreach($stars as $star) {
+//     $newStar = new Star();
+//     $newStar->createStar($star, $index);
+//     $index++;
+// }
 
