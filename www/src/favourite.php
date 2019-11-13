@@ -1,11 +1,18 @@
 <?php
 
 declare(strict_types=1);
-
 namespace Stellar;
+
+require_once('classes.php');
 
 class Favourite
 {
+    /**
+     * Database table name
+     * @var string
+     */
+    protected static $dbTable = "favourites";
+
     /**
      * @var int
      */
@@ -73,4 +80,22 @@ class Favourite
         return $this;
     }
 
+
+    public static function findAll()
+    {
+        global $database;
+        // Would add a where condition for match userlogin ID when auth added
+        $sql = "SELECT * FROM favourites";
+        $result = $database->connect()->query($sql);
+        $favouriteResults = [];
+        while($row = $result->fetch()) {
+            $favouriteResults[] = $row;
+        }
+        $favourites = [];
+        foreach($favouriteResults as $favouriteResult) {
+            $favourite = Star::findStar($favouriteResult["star_id"]);
+            $favourites[] = $favourite;
+        }
+        return $favourites;
+    }
 }
